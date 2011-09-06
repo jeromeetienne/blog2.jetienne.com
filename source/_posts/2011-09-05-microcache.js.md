@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: microcache.js - cache micro library
+categories: [microlib, node, browser]
 ---
 
 **microcache.js** is a micro library to handle in-memory cache. It is less than

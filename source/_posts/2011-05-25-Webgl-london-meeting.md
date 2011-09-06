@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: Webgl London Meeting
+categories: [webgl, javascript, events]
 ---
 
 Yesterday, the first london webgl meeting happened!

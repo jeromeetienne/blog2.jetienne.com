@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: Pacmaze V1 - a Pacman in WebGL
+categories: [game, javascript, webgl]
 ---
 
 ## tl;dr;

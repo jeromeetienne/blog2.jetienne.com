@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame()
+categories: [webgl, javascript, browser]
 ---
 
 [Paul Irish](http://paulirish.com/) recently

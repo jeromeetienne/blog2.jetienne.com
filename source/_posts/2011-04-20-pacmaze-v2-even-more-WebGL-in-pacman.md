@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: Pacmaze v2 - Event More WebGL in Pacman
+categories: [game, javascript, webgl]
 ---
 
 <a href='http://pacmaze.com' target='_blank'>Pacmaze</a> v2 is the second version of pacmaze

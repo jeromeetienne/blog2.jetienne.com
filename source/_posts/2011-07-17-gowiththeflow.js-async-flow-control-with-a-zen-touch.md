@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: GoWithTheFlow.js - async flow control with a zen touch - for node and browser
+categories: [microlib, node, browser, flowcontrol]
 ---
 
 GoWithTheFlow.js is a javascript asynchronous flow-control micro library which works **in

@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: Parisjs 7 slides
+categories: [parisjs, javascript, events]
 ---
 
 [parisjs #7](http://parisjs.org) was fun as always. I did a flash talk

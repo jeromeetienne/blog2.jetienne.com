@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MicroEvent.js - micro event emitter in 20 lines
+categories: [microlib, node, browser]
 ---
 
 _MicroEvent.js_ is a event emitter library which provides the

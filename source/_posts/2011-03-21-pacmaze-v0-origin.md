@@ -1,7 +1,8 @@
 ---
 layout: post
 published: true
-title: Pacmaze V0 - First multi-player first person shooter on html5 
+title: Pacmaze V0 - First multi-player first person shooter on html5
+categories: [game, javascript, webgl]
 ---
 
 Last week, i started to do gamedev.
