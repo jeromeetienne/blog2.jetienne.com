@@ -17,10 +17,11 @@ cancels a [setTimeout](https://developer.mozilla.org/en/DOM/window.setTimeout).
 
 <!-- more -->
 
-# Step 1: how to get the code
+## Step 1: how to get the code
 
 First include the ```cancelRequestAnimFrame()``` code in your page. 
 
+```javascript
 	window.cancelRequestAnimFrame = ( function() {
 		return window.cancelAnimationFrame			||
 			window.webkitCancelRequestAnimationFrame	||
@@ -29,11 +30,13 @@ First include the ```cancelRequestAnimFrame()``` code in your page.
 			window.msCancelRequestAnimationFrame		||
 			clearTimeout
 	} )();
-	
+```
+
 Add ```requestAnimFrame()``` too. It is a slightly modified version of
 [paul's](http://paulirish.com/2011/requestanimationframe-for-smart-animating/)
 to return setTimeout() handle.
 
+```javascript
 	window.requestAnimFrame = (function(){
 		return  window.requestAnimationFrame       || 
 			window.webkitRequestAnimationFrame || 
@@ -44,13 +47,14 @@ to return setTimeout() handle.
 				return window.setTimeout(callback, 1000 / 60);
 			};
 	})();
+```
 
-
-# Step 2: how to use it
+## Step 2: how to use it
 
 Here is a possible way to use it.
 ***Show, dont tell***, here is a [live demo](http://jsfiddle.net/ghjKC/3/) on jsfiddle
 
+```javascript
     // to store the request
     var request;
     
@@ -64,9 +68,9 @@ Here is a possible way to use it.
     setTimeout(function(){
         cancelRequestAnimFrame(request);				
     }, 1*1000)
+```
 
-
-# About requestAnimationFrame
+## About requestAnimationFrame
 
 In the past months, much has been done for web graphics. Among them, 
 [requestAnimationFrame()](http://webstuff.nfshost.com/anim-timing/Overview.html)

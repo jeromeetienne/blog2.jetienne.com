@@ -16,6 +16,7 @@ Let start with a basic example. 2 jobs run in sequence. The first job is a timeo
 so the result is delivered asynchronously, and a second job is run only *after* the
 completion of the first.
 
+```javascript
     Flow().seq(function(next){
         console.log("step 1: started, it will last 1sec");
         setTimeout(function(){
@@ -25,6 +26,7 @@ completion of the first.
     }).seq(function(next){
         console.log("step 2: run after step1 has been completed");
     })
+```
 
 It will display the following
 
@@ -54,6 +56,7 @@ equal to ```undefined```
 
 for example
 
+```javascript
     Flow().seq(function(next){
         console.log("first job");
         next(null, "result1");
@@ -61,7 +64,7 @@ for example
         console.log("second job. run *after* first job");
         next();
     })
-
+```
 
 ## .par(callback) to execute job in parallel
 
@@ -71,6 +74,7 @@ will receive all the *error* and *result* in Array. One array item per previous 
 
 for example
 
+```javascript
     Flow().par(function(next){
         console.log("job foo");
         next(null, "foo");
@@ -83,6 +87,7 @@ for example
         console.assert(results.length == 2 && results[0] === 'foo' && results[1] == 'bar')
         next();
     })
+```
 
 That's it
 
