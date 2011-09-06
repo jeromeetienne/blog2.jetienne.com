@@ -92,57 +92,88 @@ cancels a <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTi
 <!-- more -->
 
 
-<h1>Step 1: how to get the code</h1>
+<h2>Step 1: how to get the code</h2>
 
 <p>First include the <code>cancelRequestAnimFrame()</code> code in your page.</p>
 
-<pre><code>window.cancelRequestAnimFrame = ( function() {
-    return window.cancelAnimationFrame          ||
-        window.webkitCancelRequestAnimationFrame    ||
-        window.mozCancelRequestAnimationFrame       ||
-        window.oCancelRequestAnimationFrame     ||
-        window.msCancelRequestAnimationFrame        ||
-        clearTimeout
-} )();
-</code></pre>
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">cancelRequestAnimFrame</span> <span class="o">=</span> <span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</div><div class='line'>    <span class="k">return</span> <span class="nb">window</span><span class="p">.</span><span class="nx">cancelAnimationFrame</span>          <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">webkitCancelRequestAnimationFrame</span>    <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">mozCancelRequestAnimationFrame</span>       <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">oCancelRequestAnimationFrame</span>     <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">msCancelRequestAnimationFrame</span>        <span class="o">||</span>
+</div><div class='line'>        <span class="nx">clearTimeout</span>
+</div><div class='line'><span class="p">}</span> <span class="p">)();</span>
+</div></code></pre></td></tr></table></div></figure>
 
 <p>Add <code>requestAnimFrame()</code> too. It is a slightly modified version of
 <a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">paul&#8217;s</a>
 to return setTimeout() handle.</p>
 
-<pre><code>window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame       || 
-        window.webkitRequestAnimationFrame || 
-        window.mozRequestAnimationFrame    || 
-        window.oRequestAnimationFrame      || 
-        window.msRequestAnimationFrame     || 
-        function(/* function */ callback, /* DOMElement */ element){
-            return window.setTimeout(callback, 1000 / 60);
-        };
-})();
-</code></pre>
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimFrame</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</div><div class='line'>    <span class="k">return</span>  <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span>       <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">webkitRequestAnimationFrame</span> <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">mozRequestAnimationFrame</span>    <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">oRequestAnimationFrame</span>      <span class="o">||</span>
+</div><div class='line'>        <span class="nb">window</span><span class="p">.</span><span class="nx">msRequestAnimationFrame</span>     <span class="o">||</span>
+</div><div class='line'>        <span class="kd">function</span><span class="p">(</span><span class="cm">/* function */</span> <span class="nx">callback</span><span class="p">,</span> <span class="cm">/* DOMElement */</span> <span class="nx">element</span><span class="p">){</span>
+</div><div class='line'>            <span class="k">return</span> <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span><span class="p">);</span>
+</div><div class='line'>        <span class="p">};</span>
+</div><div class='line'><span class="p">})();</span>
+</div></code></pre></td></tr></table></div></figure>
 
-<h1>Step 2: how to use it</h1>
+<h2>Step 2: how to use it</h2>
 
 <p>Here is a possible way to use it.
 <strong><em>Show, dont tell</em></strong>, here is a <a href="http://jsfiddle.net/ghjKC/3/">live demo</a> on jsfiddle</p>
 
-<pre><code>// to store the request
-var request;
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+<span class='line'>13</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="c1">// to store the request</span>
+</div><div class='line'><span class="kd">var</span> <span class="nx">request</span><span class="p">;</span>
+</div><div class='line'>
+</div><div class='line'><span class="c1">// start and run the animloop</span>
+</div><div class='line'><span class="p">(</span><span class="kd">function</span> <span class="nx">animloop</span><span class="p">(){</span>
+</div><div class='line'>  <span class="nx">render</span><span class="p">();</span>
+</div><div class='line'>  <span class="nx">request</span> <span class="o">=</span> <span class="nx">requestAnimFrame</span><span class="p">(</span><span class="nx">animloop</span><span class="p">,</span> <span class="nx">element</span><span class="p">);</span>
+</div><div class='line'><span class="p">})();</span>
+</div><div class='line'>
+</div><div class='line'><span class="c1">// cancelRequestAnimFrame to stop the loop in 1 second</span>
+</div><div class='line'><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</div><div class='line'>    <span class="nx">cancelRequestAnimFrame</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span>
+</div><div class='line'><span class="p">},</span> <span class="mi">1</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+</div></code></pre></td></tr></table></div></figure>
 
-// start and run the animloop
-(function animloop(){
-  render();
-  request = requestAnimFrame(animloop, element);
-})();
-
-// cancelRequestAnimFrame to stop the loop in 1 second
-setTimeout(function(){
-    cancelRequestAnimFrame(request);                
-}, 1*1000)
-</code></pre>
-
-<h1>About requestAnimationFrame</h1>
+<h2>About requestAnimationFrame</h2>
 
 <p>In the past months, much has been done for web graphics. Among them,
 <a href="http://webstuff.nfshost.com/anim-timing/Overview.html">requestAnimationFrame()</a>

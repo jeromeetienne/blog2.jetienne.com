@@ -90,16 +90,25 @@ Flow() is only 30lines.</p>
 so the result is delivered asynchronously, and a second job is run only <em>after</em> the
 completion of the first.</p>
 
-<pre><code>Flow().seq(function(next){
-    console.log("step 1: started, it will last 1sec");
-    setTimeout(function(){
-        console.log("step 1: 1sec expired. Step 1 completed");
-        next();
-    }, 1000);
-}).seq(function(next){
-    console.log("step 2: run after step1 has been completed");
-})
-</code></pre>
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">Flow</span><span class="p">().</span><span class="nx">seq</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;step 1: started, it will last 1sec&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</div><div class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;step 1: 1sec expired. Step 1 completed&quot;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">next</span><span class="p">();</span>
+</div><div class='line'>    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+</div><div class='line'><span class="p">}).</span><span class="nx">seq</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;step 2: run after step1 has been completed&quot;</span><span class="p">);</span>
+</div><div class='line'><span class="p">})</span>
+</div></code></pre></td></tr></table></div></figure>
 
 <p>It will display the following</p>
 
@@ -132,14 +141,21 @@ equal to <code>undefined</code></p></li>
 
 <p>for example</p>
 
-<pre><code>Flow().seq(function(next){
-    console.log("first job");
-    next(null, "result1");
-}).seq(function(next, error, result){    
-    console.log("second job. run *after* first job");
-    next();
-})
-</code></pre>
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">Flow</span><span class="p">().</span><span class="nx">seq</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;first job&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="nx">next</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;result1&quot;</span><span class="p">);</span>
+</div><div class='line'><span class="p">}).</span><span class="nx">seq</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">,</span> <span class="nx">error</span><span class="p">,</span> <span class="nx">result</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;second job. run *after* first job&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="nx">next</span><span class="p">();</span>
+</div><div class='line'><span class="p">})</span>
+</div></code></pre></td></tr></table></div></figure>
 
 <h2>.par(callback) to execute job in parallel</h2>
 
@@ -149,19 +165,31 @@ will receive all the <em>error</em> and <em>result</em> in Array. One array item
 
 <p>for example</p>
 
-<pre><code>Flow().par(function(next){
-    console.log("job foo");
-    next(null, "foo");
-}).par(function(next){
-    console.log("job bar");
-    next(null, "bar");
-}).seq(function(next, errors, results){
-    console.log("job run *after* the completion of foo and bar");
-    console.assert(errors.length == 2 &amp;&amp; errors[0] === null &amp;&amp; errors[1] == null)
-    console.assert(results.length == 2 &amp;&amp; results[0] === 'foo' &amp;&amp; results[1] == 'bar')
-    next();
-})
-</code></pre>
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+<span class='line'>10</span>
+<span class='line'>11</span>
+<span class='line'>12</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">Flow</span><span class="p">().</span><span class="nx">par</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;job foo&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="nx">next</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">);</span>
+</div><div class='line'><span class="p">}).</span><span class="nx">par</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;job bar&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="nx">next</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">);</span>
+</div><div class='line'><span class="p">}).</span><span class="nx">seq</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">,</span> <span class="nx">errors</span><span class="p">,</span> <span class="nx">results</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;job run *after* the completion of foo and bar&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="nx">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">errors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;foo&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</div><div class='line'>    <span class="nx">next</span><span class="p">();</span>
+</div><div class='line'><span class="p">})</span>
+</div></code></pre></td></tr></table></div></figure>
 
 <p>That&#8217;s it</p>
 

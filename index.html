@@ -147,16 +147,25 @@ Flow() is only 30lines.</p>
 so the result is delivered asynchronously, and a second job is run only <em>after</em> the
 completion of the first.</p>
 
-<pre><code>Flow().seq(function(next){
-    console.log("step 1: started, it will last 1sec");
-    setTimeout(function(){
-        console.log("step 1: 1sec expired. Step 1 completed");
-        next();
-    }, 1000);
-}).seq(function(next){
-    console.log("step 2: run after step1 has been completed");
-})
-</code></pre>
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+<span class='line'>7</span>
+<span class='line'>8</span>
+<span class='line'>9</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">Flow</span><span class="p">().</span><span class="nx">seq</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;step 1: started, it will last 1sec&quot;</span><span class="p">);</span>
+</div><div class='line'>    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</div><div class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;step 1: 1sec expired. Step 1 completed&quot;</span><span class="p">);</span>
+</div><div class='line'>        <span class="nx">next</span><span class="p">();</span>
+</div><div class='line'>    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+</div><div class='line'><span class="p">}).</span><span class="nx">seq</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;step 2: run after step1 has been completed&quot;</span><span class="p">);</span>
+</div><div class='line'><span class="p">})</span>
+</div></code></pre></td></tr></table></div></figure>
 
 <p>It will display the following</p>
 
