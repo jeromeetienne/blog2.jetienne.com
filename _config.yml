@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://blog.jetienne.com
+title: Jerome Etienne Blog
+subtitle: Keeping the latency low.
+author: Jerome Etienne
 simple_search: http://google.com/search
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
@@ -55,7 +55,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: jerome_etienne
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
