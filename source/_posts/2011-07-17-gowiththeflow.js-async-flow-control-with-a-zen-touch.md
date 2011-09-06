@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: GoWithTheFlow.js - async flow control with a zen touch - for node and browser
+title: GoWithTheFlow.js - async flow control with a zen touch
 categories: [microlib, node, browser, flowcontrol]
 ---
 

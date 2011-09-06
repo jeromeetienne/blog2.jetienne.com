@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: Buddymaze - First Personn Shooter in WebGL
+categories: [game, javascript, webgl]
 ---
 
 [Buddymaze](http://buddymaze.com) is a clone of

@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: microcache.js - cache micro library
+title: MicroCache.js - Cache Micro Library
 categories: [microlib, node, browser]
 ---
 
@@ -11,7 +11,7 @@ It is available on github <a href='https://github.com/jeromeetienne/microcache.j
 under <a href='https://github.com/jeromeetienne/microcache.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
 If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)
 
-# Install it
+## Install it
 
 To install it on node
 
@@ -27,7 +27,7 @@ To install the browser version, download it and include it like that
 
 <!-- more -->
 
-# API
+## API
 
 To instanciate a cache, do the following. You can have as many instances you want.
 
@@ -35,7 +35,7 @@ To instanciate a cache, do the following. You can have as many instances you wan
     var microcache = new MicroCache();
 ```
 
-## .get(key)
+### .get(key)
 
 To get a cached asset which is in the cache. Each cached element has a unique
 key to identify it.
@@ -44,7 +44,7 @@ key to identify it.
     microcache.get('foo');
 ```
 
-## .set(key, value)
+### .set(key, value)
 
 To set a element value in the cache.
 
@@ -52,7 +52,7 @@ To set a element value in the cache.
     microcache.set('foo', 'bar');
 ```
 
-## .contains(key)
+### .contains(key)
 
 To know if a given asset is currently in the cache.
 
@@ -60,7 +60,7 @@ To know if a given asset is currently in the cache.
     microcache.contains('foo');
 ```
 
-## .values()
+### .values()
 
 To return all the elements currently in the cache
 
@@ -68,7 +68,7 @@ To return all the elements currently in the cache
     microcache.values();
 ```
 
-## .getSet(key, value)
+### .getSet(key, value)
 
 To get an element from the cache, if it isnt already present, store it then return it
 
@@ -78,7 +78,7 @@ To get an element from the cache, if it isnt already present, store it then retu
 
 ## FAQ
 
-1. what about plain ```var microcache = {}``` ? isnt this wrapper overengineering ?
-a. i was thinking so too at first. but the syntax of a .getSet() without wrapper was too ugly for my taste :)
-   "var a = cache[key] = (cache[key] || value)" from @floriancargoet
+  * **Q.** what about plain ```var microcache = {}``` ? isnt this wrapper overengineering ?
+  * **A.**  i was thinking so too at first. but the syntax of a .getSet() without wrapper was too ugly for my taste :)
+```var a = cache[key] = (cache[key] || value)``` from @floriancargoet
 

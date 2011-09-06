@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: jquery.qrcode - jquery plugin for pure browser qrcode generation
+categories: [jquery, browser, qrcode]
 ---
 
 <a href='http://jeromeetienne.github.com/jquery-qrcode'>jquery.qrcode.js</a>

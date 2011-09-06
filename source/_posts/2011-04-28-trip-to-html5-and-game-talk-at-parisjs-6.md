@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: a trip to html5 and game - talk at parisjs #6
+categories: [parisjs, javascript, events, game]
 ---
 
 Yesterday i was at [parisjs](http://parisjs.org) talking about html5 and game.
