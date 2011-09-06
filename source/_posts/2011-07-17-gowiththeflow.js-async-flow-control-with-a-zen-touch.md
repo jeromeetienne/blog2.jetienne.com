@@ -31,6 +31,8 @@ It will display the following
     step 1: 1sec expired. Step 1 completed
     step 2: run after step1 has been completed
 
+<!-- more -->
+
 # Methods
 
 In order to keep it as simple as possible, Flow has only 2 methods.

@@ -30,6 +30,8 @@ Pacmaze V1 being the first of the serie.
 This is the current plan... I know the schedule is tight, but this
 is part of the challenge. We will see how it goes along the road.
 
+<!-- more -->
+
 ## Pacmaze Experiment Origin
 
 [Pacmaze v0](http://pacmaze0.jetienne.com) was the first

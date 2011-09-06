@@ -14,6 +14,8 @@ method *talk*.
     Animal.prototype.talk	= function(){ return 'mumble';  }
     Animal.prototype.sleep	= function(){ return 'zzzzz';   }
 
+<!-- more -->
+
 # How to write the inheritance
 
 Now let write a *Cat* class which inherits from *Animal*. It will override the animal

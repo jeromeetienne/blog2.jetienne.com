@@ -32,6 +32,8 @@ then this html will display `bar`. Here it is a [demo](http://jeromeetienne.gith
     <script>
         alert( require('./foobar.js').foo );
     </script>
+    
+<!-- more -->
 
 ## Performance vs Compatibility
 

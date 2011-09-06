@@ -14,6 +14,8 @@ It cancels a [requestAnimationFrame()](http://webstuff.nfshost.com/anim-timing/O
 like [clearTimeout](https://developer.mozilla.org/en/DOM/window.clearTimeout)
 cancels a [setTimeout](https://developer.mozilla.org/en/DOM/window.setTimeout).
 
+<!-- more -->
+
 # Step 1: how to get the code
 
 First include the ```cancelRequestAnimFrame()``` code in your page. 

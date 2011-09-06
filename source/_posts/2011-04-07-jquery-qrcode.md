@@ -15,6 +15,8 @@ it to make it easy to include in your own code.
 
 Show, dont tell, here is a <a href='http://jeromeetienne.github.com/jquery-qrcode/examples/basic.html'>example</a>
 
+<!-- more -->
+
 ## How to Use It
 
 Let me walk you thru it. First include it in your webpage with the usual script tag
