@@ -4,7 +4,7 @@
   <title>Jerome Etienne Blog</title>
   <link href="http://blog.jetienne.com/atom.xml" rel="self"/>
   <link href="http://blog.jetienne.com/"/>
-  <updated>2011-09-06T18:53:00+02:00</updated>
+  <updated>2011-09-06T19:00:09+02:00</updated>
   <id>http://blog.jetienne.com/</id>
   <author>
     <name>Jerome Etienne</name>
@@ -13,7 +13,7 @@
 
   
   <entry>
-    <title>microcache.js - cache micro library</title>
+    <title>MicrocCache.js - Cache Micro Library</title>
     <link href="http://blog.jetienne.com/blog/2011/09/05/microcache.js/"/>
     <updated>2011-09-05T00:00:00+02:00</updated>
     <id>http://blog.jetienne.com/blog/2011/09/05/microcache.js</id>
@@ -23,7 +23,7 @@ It is available on github &lt;a href='https://github.com/jeromeetienne/microcach
 under &lt;a href='https://github.com/jeromeetienne/microcache.js/blob/master/MIT-LICENSE.txt'&gt;MIT license&lt;/a&gt;.
 If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)&lt;/p&gt;
 
-&lt;h1&gt;Install it&lt;/h1&gt;
+&lt;h2&gt;Install it&lt;/h2&gt;
 
 &lt;p&gt;To install it on node&lt;/p&gt;
 
@@ -46,7 +46,7 @@ If you hit bugs, fill issues on github. Feel free to fork, modify and have fun w
 &lt;!-- more --&gt;
 
 
-&lt;h1&gt;API&lt;/h1&gt;
+&lt;h2&gt;API&lt;/h2&gt;
 
 &lt;p&gt;To instanciate a cache, do the following. You can have as many instances you want.&lt;/p&gt;
 
@@ -57,7 +57,7 @@ If you hit bugs, fill issues on github. Feel free to fork, modify and have fun w
 
 &lt;p&gt;```&lt;/p&gt;
 
-&lt;h2&gt;.get(key)&lt;/h2&gt;
+&lt;h3&gt;.get(key)&lt;/h3&gt;
 
 &lt;p&gt;To get a cached asset which is in the cache. Each cached element has a unique
 key to identify it.&lt;/p&gt;
@@ -69,7 +69,7 @@ key to identify it.&lt;/p&gt;
 
 &lt;p&gt;```&lt;/p&gt;
 
-&lt;h2&gt;.set(key, value)&lt;/h2&gt;
+&lt;h3&gt;.set(key, value)&lt;/h3&gt;
 
 &lt;p&gt;To set a element value in the cache.&lt;/p&gt;
 
@@ -80,7 +80,7 @@ key to identify it.&lt;/p&gt;
 
 &lt;p&gt;```&lt;/p&gt;
 
-&lt;h2&gt;.contains(key)&lt;/h2&gt;
+&lt;h3&gt;.contains(key)&lt;/h3&gt;
 
 &lt;p&gt;To know if a given asset is currently in the cache.&lt;/p&gt;
 
@@ -91,7 +91,7 @@ key to identify it.&lt;/p&gt;
 
 &lt;p&gt;```&lt;/p&gt;
 
-&lt;h2&gt;.values()&lt;/h2&gt;
+&lt;h3&gt;.values()&lt;/h3&gt;
 
 &lt;p&gt;To return all the elements currently in the cache&lt;/p&gt;
 
@@ -102,7 +102,7 @@ key to identify it.&lt;/p&gt;
 
 &lt;p&gt;```&lt;/p&gt;
 
-&lt;h2&gt;.getSet(key, value)&lt;/h2&gt;
+&lt;h3&gt;.getSet(key, value)&lt;/h3&gt;
 
 &lt;p&gt;To get an element from the cache, if it isnt already present, store it then return it&lt;/p&gt;
 
@@ -115,11 +115,11 @@ key to identify it.&lt;/p&gt;
 
 &lt;h2&gt;FAQ&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;what about plain &lt;code&gt;var microcache = {}&lt;/code&gt; ? isnt this wrapper overengineering ?
-a. i was thinking so too at first. but the syntax of a .getSet() without wrapper was too ugly for my taste :)
-&quot;var a = cache[key] = (cache[key] || value)&quot; from @floriancargoet&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Q.&lt;/strong&gt; what about plain &lt;code&gt;var microcache = {}&lt;/code&gt; ? isnt this wrapper overengineering ?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A.&lt;/strong&gt;  i was thinking so too at first. but the syntax of a .getSet() without wrapper was too ugly for my taste :)
+&lt;code&gt;var a = cache[key] = (cache[key] || value)&lt;/code&gt; from @floriancargoet&lt;/li&gt;
+&lt;/ul&gt;
 
 </content>
   </entry>
