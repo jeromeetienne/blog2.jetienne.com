@@ -8,18 +8,22 @@ categories: [game, three.js, pacmaze]
 ---
 
 
-Pacmaze just got an [update](http://pacmaze.com). It is version 5 now.
+Pacmaze just got an [update](http://pacmaze.com).
 it was long overdue, i admit, other matters distracted me from it.
-It is good to be back on it tho. Here is an embedded version below. Use AWSD
-keys to play. Or play the [full page version](http://pacmaze.com).
+It is good to be back on it tho.
+It is version 5 now. It is a major performance update and is now
+embeddable in other pages.
+
+See an embedded version below. Use AWSD
+keys to play or play the [full page version](http://pacmaze.com).
 
 <center><iframe src='http://pacmaze.com' width='480px' height='360px'></iframe></center>
 
-This is mainly a performance update.
 Additionnaly, Packy has been renamed Pucky as a reference to the original name of pacman,
 ['Puck-Man'](http://www.google.com/search?tbm=isch&hl=en&source=hp&biw=1280&bih=644&q=puckman&gbv=2&oq=puckman&aq=f&aqi=&aql=&gs_sm=s&gs_upl=0l0l0l4562l0l0l0l0l0l0l0l0ll0l0).
 You can read all about the history of pacman in the [pacman dossier](http://home.comcast.net/~jpittman2/pacman/pacmandossier.html).
 
+This is a major performance update, especially for macbook.
 I got recently got a [macbook](http://www.apple.com/macbookpro/specs-13inch.html)
 and i noticed [pacmaze](http://pacmaze) wasn't too good on it.
 So i optimize the WebGL on this plateform.  The performance are now much better.
