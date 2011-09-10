@@ -1,6 +1,6 @@
 # Makefile to make automatize simple tasks
 
-server:
+server: build
 	rake preview
 
 build:
