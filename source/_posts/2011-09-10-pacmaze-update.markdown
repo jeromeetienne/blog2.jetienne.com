@@ -19,21 +19,20 @@ You can read all about the history of pacman in the [pacman dossier](http://home
 
 ## Embedded game
 
-The game is now embeddable in external page.
-To embed the game in your own page, just do the following and tune the css to own taste.
-
-```html
-    <iframe src='http://pacmaze.com' width='480px' height='360px'></iframe>
-```
-
-<!-- more -->
-
 See an embedded version below.
 Use AWSD
 keys to play or play the [full page version](http://pacmaze.com).
 
 <center><iframe src='http://pacmaze.com' width='480px' height='360px'></iframe></center>
 
+<!-- more -->
+
+The game is now embeddable in external page.
+To embed the game in your own page, just do the following and tune the css to own taste.
+
+```html
+    <iframe src='http://pacmaze.com' width='480px' height='360px'></iframe>
+```
 
 ## Performance boost
 
