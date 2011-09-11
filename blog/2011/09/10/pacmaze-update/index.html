@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>wget thinks github.com is a threat - Jerome Etienne.js Blog</title>
+  <title>Pacmaze Update - Jerome Etienne.js Blog</title>
   <meta name="author" content="Jerome Etienne">
   
 
@@ -16,7 +16,7 @@
 
   
 
-  <link rel="canonical" href="http://blog.jetienne.com/blog/2011/04/15/wget-thinks-github.com-is-a-threat/"/>
+  <link rel="canonical" href="http://blog.jetienne.com/blog/2011/09/10/pacmaze-update/"/>
   <link href="/favicon.png" rel="shortcut icon" />
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,7 +62,7 @@
   
   <header>
     
-      <h1 class="entry-title">Wget Thinks github.com Is a Threat</h1>
+      <h1 class="entry-title">Pacmaze Update</h1>
     
     
       <p class="meta">
@@ -75,48 +75,53 @@
 
 
 
-<time datetime="2011-04-15T00:00:00+02:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2011</time></p>
+<time datetime="2011-09-10T12:12:00+02:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2011</time></p>
     
   </header>
 
 
-<div class="entry-content"><p>This is just a little post on a oddity. As a coder, i use <a href="http://github.com">github</a>
-and <a href="http://www.gnu.org/software/wget/">wget</a> everyday or close. When i do, i
-see this message.</p>
+<div class="entry-content"><p>Pacmaze just got an <a href="http://pacmaze.com">update</a>.
+it was long overdue, i admit, other matters distracted me from it.
+It is good to be back on it tho.
+It is version 5 now. It is a major performance update, <strong>5 time faster</strong> in some cases.
+The game is now embeddable in external pages.
+Additionnaly, Packy has been renamed Pucky as a reference to the original name of pacman,
+<a href="http://www.google.com/search?tbm=isch&amp;hl=en&amp;source=hp&amp;biw=1280&amp;bih=644&amp;q=puckman&amp;gbv=2&amp;oq=puckman&amp;aq=f&amp;aqi=&amp;aql=&amp;gs_sm=s&amp;gs_upl=0l0l0l4562l0l0l0l0l0l0l0l0ll0l0">&#8216;Puck-Man&#8217;</a>.
+You can read all about the history of pacman in the <a href="http://home.comcast.net/~jpittman2/pacman/pacmandossier.html">pacman dossier</a>.</p>
 
-<pre><code>$ wget https://github.com/jeromeetienne/nmod/raw/master/nmod
-...
-ERROR: certificate common name `*.github.com' doesn't match requested
-host name `github.com'.
-To connect to github.com insecurely, use `--no-check-certificate'.
-</code></pre>
+<h2>Embedded game</h2>
 
-<p>This message puzzles me quite a bit&#8230;
-<a href="http://www.gnu.org/software/wget/">wget</a>
-thinks
-<strong><em><a href="http://github.com">github</a>
-is a threat</em></strong> &#8230; and requires an explicit action
-from you (adding <code>--no-check-certificate</code>) to be sure you are willing to take this <strong><em>risk</em></strong> .
-The risk of downloading files from github&#8230; ok lets admit it, <strong><em>this is ridiculous</em></strong>.
-<a href="http://www.gnu.org/software/wget/">wget</a> distrusting <a href="http://github.com">github</a> is
-like &#8230; <a href="http://en.wikipedia.org/wiki/Ls">ls</a> distrusting <a href="http://en.wikipedia.org/wiki/Cd_(command)">cd</a> :)</p>
+<p>See an embedded version below.
+Use AWSD
+keys to play or play the <a href="http://pacmaze.com">full page version</a>.</p>
 
-<p>According to github, <a href="http://support.github.com/discussions/site/2507-error-certificate-common-name-githubcom-doesnt-match-requested-host-name-githubcom">this is actually a wget bug which has been reported and fixed but not release</a>
-, and point to a <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=409938">bug from 2007</a>!!!!
-Dunno if this is true, or who is at the best place to fix the issue&#8230; and the purpose of this post
-is not to do finger pointing.</p>
+<center><iframe src='http://pacmaze.com' width='480px' height='360px'></iframe></center>
 
-<p>Lets note that everybody is from open source world here.
-wget is from gnu, not only under gpl, but
-<a href="http://en.wikipedia.org/wiki/Wget#Authors_and_copyright">even got his copyright assigned to fsf</a>.
-What to say about github and opensource ? well they got <a href="https://github.com/blog/685-one-million-repositories">millions of
-repositories</a>
-and most of them are open source software.</p>
 
-<p>This post is not meant to be a rant. More to put the light on an oddity. something that i see
-as a <code>symptom of communication issue</code> in the opensource community.</p>
 
-<p>Let do better! :)</p>
+
+<!-- more -->
+
+
+<p>The game is now embeddable in external page.
+To embed the game in your own page, just do the following and tune the css to own taste.</p>
+
+<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
+</pre></td><td class='code' width='100%'><pre><code class='html'><div class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&#39;http://pacmaze.com&#39;</span> <span class="na">width=</span><span class="s">&#39;480px&#39;</span> <span class="na">height=</span><span class="s">&#39;360px&#39;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</div></code></pre></td></tr></table></div></figure>
+
+<h2>Performance boost</h2>
+
+<p><em>Pacmaze v5</em> is a major performance update, especially for macbook.
+I got recently got a <a href="http://www.apple.com/macbookpro/specs-13inch.html">macbook</a>.
+I quickly noticed <a href="http://pacmaze">pacmaze</a> wasn&#8217;t too good on it, to say the least.
+So i optimized the WebGL on this plateform.  The performance are now much better.
+For Chrome, the performance went from 10fps to more than 50fps.
+On Firefox, the old version got bugs and 7fps&#8230; ouch. Now known bugs are removed
+and the average fps is close to 45fps.</p>
+
+<p>So <a href="http://en.wikipedia.org/wiki/Frame_rate">fps</a> on macbook is now
+5 time faster! Quite a boost! Next update i plan to focus on visual effets.</p>
 </div>
 
 
@@ -137,15 +142,21 @@ as a <code>symptom of communication issue</code> in the opensource community.</p
 
 
 
-<time datetime="2011-04-15T00:00:00+02:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2011</time>
+<time datetime="2011-09-10T12:12:00+02:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2011</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/game/'>game</a>, <a class='category' href='/blog/categories/pacmaze/'>pacmaze</a>, <a class='category' href='/blog/categories/three-js/'>three.js</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.jetienne.com/blog/2011/04/15/wget-thinks-github.com-is-a-threat/" data-via="jerome_etienne" data-counturl="http://blog.jetienne.com/blog/2011/04/15/wget-thinks-github.com-is-a-threat/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.jetienne.com/blog/2011/09/10/pacmaze-update/" data-via="jerome_etienne" data-counturl="http://blog.jetienne.com/blog/2011/09/10/pacmaze-update/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -161,8 +172,8 @@ as a <code>symptom of communication issue</code> in the opensource community.</p
     <div id="disqus_thread"><div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'blogjetiennecom';
-  var disqus_identifier = 'http://blog.jetienne.com/blog/2011/04/15/wget-thinks-github.com-is-a-threat/';
-  var disqus_url = 'http://blog.jetienne.com/blog/2011/04/15/wget-thinks-github.com-is-a-threat/';
+  var disqus_identifier = 'http://blog.jetienne.com/blog/2011/09/10/pacmaze-update/';
+  var disqus_url = 'http://blog.jetienne.com/blog/2011/09/10/pacmaze-update/';
   //var disqus_developer = 1;
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

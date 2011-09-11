@@ -33,7 +33,7 @@
   <header><hgroup>
   <h1><a href="/">Jerome Etienne.js Blog</a></h1>
   
-    <h2>Around JavaScript, node.js, WebGL and other cool stuff</h2>
+    <h2>Around JavaScript, node.js, WebGL and cool HTML5 game stuff</h2>
   
 </hgroup>
 
@@ -59,6 +59,60 @@
     <div id="content">
       <div class="blog-index">
 
+
+
+  <article>
+    
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/10/pacmaze-update/">Pacmaze Update</a></h1>
+    
+    
+      <p class="meta">
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-09-10T12:12:00+02:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2011</time></p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Pacmaze just got an <a href="http://pacmaze.com">update</a>.
+it was long overdue, i admit, other matters distracted me from it.
+It is good to be back on it tho.
+It is version 5 now. It is a major performance update, <strong>5 time faster</strong> in some cases.
+The game is now embeddable in external pages.
+Additionnaly, Packy has been renamed Pucky as a reference to the original name of pacman,
+<a href="http://www.google.com/search?tbm=isch&amp;hl=en&amp;source=hp&amp;biw=1280&amp;bih=644&amp;q=puckman&amp;gbv=2&amp;oq=puckman&amp;aq=f&amp;aqi=&amp;aql=&amp;gs_sm=s&amp;gs_upl=0l0l0l4562l0l0l0l0l0l0l0l0ll0l0">&#8216;Puck-Man&#8217;</a>.
+You can read all about the history of pacman in the <a href="http://home.comcast.net/~jpittman2/pacman/pacmandossier.html">pacman dossier</a>.</p>
+
+<h2>Embedded game</h2>
+
+<p>See an embedded version below.
+Use AWSD
+keys to play or play the <a href="http://pacmaze.com">full page version</a>.</p>
+
+<center><iframe src='http://pacmaze.com' width='480px' height='360px'></iframe></center>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/09/10/pacmaze-update/">Read on &rarr;</a>
+    </footer>
+  
+
+
+  </article>
 
 
   <article>
@@ -507,73 +561,6 @@ You can find it as <a href="http://pacmaze.com">standalone webapp</a> or in
 
   </article>
 
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/04/15/wget-thinks-github.com-is-a-threat/">Wget Thinks github.com Is a Threat</a></h1>
-    
-    
-      <p class="meta">
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-04-15T00:00:00+02:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2011</time></p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is just a little post on a oddity. As a coder, i use <a href="http://github.com">github</a>
-and <a href="http://www.gnu.org/software/wget/">wget</a> everyday or close. When i do, i
-see this message.</p>
-
-<pre><code>$ wget https://github.com/jeromeetienne/nmod/raw/master/nmod
-...
-ERROR: certificate common name `*.github.com' doesn't match requested
-host name `github.com'.
-To connect to github.com insecurely, use `--no-check-certificate'.
-</code></pre>
-
-<p>This message puzzles me quite a bit&#8230;
-<a href="http://www.gnu.org/software/wget/">wget</a>
-thinks
-<strong><em><a href="http://github.com">github</a>
-is a threat</em></strong> &#8230; and requires an explicit action
-from you (adding <code>--no-check-certificate</code>) to be sure you are willing to take this <strong><em>risk</em></strong> .
-The risk of downloading files from github&#8230; ok lets admit it, <strong><em>this is ridiculous</em></strong>.
-<a href="http://www.gnu.org/software/wget/">wget</a> distrusting <a href="http://github.com">github</a> is
-like &#8230; <a href="http://en.wikipedia.org/wiki/Ls">ls</a> distrusting <a href="http://en.wikipedia.org/wiki/Cd_(command)">cd</a> :)</p>
-
-<p>According to github, <a href="http://support.github.com/discussions/site/2507-error-certificate-common-name-githubcom-doesnt-match-requested-host-name-githubcom">this is actually a wget bug which has been reported and fixed but not release</a>
-, and point to a <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=409938">bug from 2007</a>!!!!
-Dunno if this is true, or who is at the best place to fix the issue&#8230; and the purpose of this post
-is not to do finger pointing.</p>
-
-<p>Lets note that everybody is from open source world here.
-wget is from gnu, not only under gpl, but
-<a href="http://en.wikipedia.org/wiki/Wget#Authors_and_copyright">even got his copyright assigned to fsf</a>.
-What to say about github and opensource ? well they got <a href="https://github.com/blog/685-one-million-repositories">millions of
-repositories</a>
-and most of them are open source software.</p>
-
-<p>This post is not meant to be a rant. More to put the light on an oddity. something that i see
-as a <code>symptom of communication issue</code> in the opensource community.</p>
-
-<p>Let do better! :)</p>
-</div>
-  
-  
-
-
-  </article>
-
 <nav role="pagination">
   <div>
     
@@ -584,12 +571,26 @@ as a <code>symptom of communication issue</code> in the opensource community.</p
   </div>
 </nav>
 
+<script type="text/javascript">
+    var disqus_shortname = 'blogjetiennecom';
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
 </div>
 <aside role=sidebar>
   
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/09/10/pacmaze-update/">Pacmaze Update</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2011/09/05/microcache.js/">MicroCache.js - Cache Micro Library</a>
@@ -605,10 +606,6 @@ as a <code>symptom of communication issue</code> in the opensource community.</p
     
       <li class="post">
         <a href="/blog/2011/05/26/Parisjs-7-slides/">Parisjs 7 slides</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/05/25/Webgl-london-meeting/">Webgl London Meeting</a>
       </li>
     
   </ul>
@@ -646,6 +643,18 @@ as a <code>symptom of communication issue</code> in the opensource community.</p
 
 </footer>
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4037844-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
   
   <script type="text/javascript">

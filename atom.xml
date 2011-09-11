@@ -4,13 +4,66 @@
   <title>Jerome Etienne.js Blog</title>
   <link href="http://blog.jetienne.com/atom.xml" rel="self"/>
   <link href="http://blog.jetienne.com/"/>
-  <updated>2011-09-07T21:29:43+02:00</updated>
+  <updated>2011-09-11T10:28:52+02:00</updated>
   <id>http://blog.jetienne.com/</id>
   <author>
     <name>Jerome Etienne</name>
     
   </author>
 
+  
+  <entry>
+    <title>Pacmaze Update</title>
+    <link href="http://blog.jetienne.com/blog/2011/09/10/pacmaze-update/"/>
+    <updated>2011-09-10T12:12:00+02:00</updated>
+    <id>http://blog.jetienne.com/blog/2011/09/10/pacmaze-update</id>
+    <content type="html">&lt;p&gt;Pacmaze just got an &lt;a href=&quot;http://pacmaze.com&quot;&gt;update&lt;/a&gt;.
+it was long overdue, i admit, other matters distracted me from it.
+It is good to be back on it tho.
+It is version 5 now. It is a major performance update, &lt;strong&gt;5 time faster&lt;/strong&gt; in some cases.
+The game is now embeddable in external pages.
+Additionnaly, Packy has been renamed Pucky as a reference to the original name of pacman,
+&lt;a href=&quot;http://www.google.com/search?tbm=isch&amp;amp;hl=en&amp;amp;source=hp&amp;amp;biw=1280&amp;amp;bih=644&amp;amp;q=puckman&amp;amp;gbv=2&amp;amp;oq=puckman&amp;amp;aq=f&amp;amp;aqi=&amp;amp;aql=&amp;amp;gs_sm=s&amp;amp;gs_upl=0l0l0l4562l0l0l0l0l0l0l0l0ll0l0&quot;&gt;'Puck-Man'&lt;/a&gt;.
+You can read all about the history of pacman in the &lt;a href=&quot;http://home.comcast.net/~jpittman2/pacman/pacmandossier.html&quot;&gt;pacman dossier&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Embedded game&lt;/h2&gt;
+
+&lt;p&gt;See an embedded version below.
+Use AWSD
+keys to play or play the &lt;a href=&quot;http://pacmaze.com&quot;&gt;full page version&lt;/a&gt;.&lt;/p&gt;
+
+&lt;center&gt;&lt;iframe src='http://pacmaze.com' width='480px' height='360px'&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+
+
+
+&lt;!-- more --&gt;
+
+
+&lt;p&gt;The game is now embeddable in external page.
+To embed the game in your own page, just do the following and tune the css to own taste.&lt;/p&gt;
+
+&lt;p&gt;```html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;iframe src='http://pacmaze.com' width='480px' height='360px'&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h2&gt;Performance boost&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Pacmaze v5&lt;/em&gt; is a major performance update, especially for macbook.
+I got recently got a &lt;a href=&quot;http://www.apple.com/macbookpro/specs-13inch.html&quot;&gt;macbook&lt;/a&gt;.
+I quickly noticed &lt;a href=&quot;http://pacmaze&quot;&gt;pacmaze&lt;/a&gt; wasn't too good on it, to say the least.
+So i optimized the WebGL on this plateform.  The performance are now much better.
+For Chrome, the performance went from 10fps to more than 50fps.
+On Firefox, the old version got bugs and 7fps... ouch. Now known bugs are removed
+and the average fps is close to 45fps.&lt;/p&gt;
+
+&lt;p&gt;So &lt;a href=&quot;http://en.wikipedia.org/wiki/Frame_rate&quot;&gt;fps&lt;/a&gt; on macbook is now
+5 time faster! Quite a boost! Next update i plan to focus on visual effets.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>MicroCache.js - Cache Micro Library</title>
