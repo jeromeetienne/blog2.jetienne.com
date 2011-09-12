@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>MicroCache.js - Cache Micro Library - Jerome Etienne.js Blog</title>
+  <title>console4Worker - console API for worker - Jerome Etienne.js Blog</title>
   <meta name="author" content="Jerome Etienne">
   
 
@@ -16,7 +16,7 @@
 
   
 
-  <link rel="canonical" href="http://blog.jetienne.com/blog/2011/09/05/microcache.js/"/>
+  <link rel="canonical" href="http://blog.jetienne.com/blog/2011/09/12/console4worker/"/>
   <link href="/favicon.png" rel="shortcut icon" />
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,7 +62,7 @@
   
   <header>
     
-      <h1 class="entry-title">MicroCache.js - Cache Micro Library</h1>
+      <h1 class="entry-title">console4Worker - Console API for Worker</h1>
     
     
       <p class="meta">
@@ -75,91 +75,107 @@
 
 
 
-<time datetime="2011-09-05T00:00:00+02:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2011</time></p>
+<time datetime="2011-09-12T09:17:00+02:00" pubdate  data-updated="true" >Sep 12<span>th</span>, 2011</time></p>
     
   </header>
 
 
-<div class="entry-content"><p><strong>microcache.js</strong> is a micro library to handle in-memory cache. It is less than
-20 lines and works in node and browser.
-It is available on github <a href='https://github.com/jeromeetienne/microcache.js'>here</a>
-under <a href='https://github.com/jeromeetienne/microcache.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
-If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)</p>
+<div class="entry-content"><p><a href="https://github.com/jeromeetienne/console4Worker">console4Worker</a> is console API for WebWorkers.
+WebWorkers are hard to debug. On top of that, <a href="http://getfirebug.com/wiki/index.php/Console_API">console API</a>
+is unavailable
+in WebWorkers. It doesn&#8217;t help.</p>
 
-<h2>Install it</h2>
+<p><a href="https://github.com/jeromeetienne/console4Worker">console4Worker</a>
+is a simple library which tries to fill this gap.
+It provides the <a href="http://getfirebug.com/wiki/index.php/Console_API">console API</a>
+, the same api you are used to.
+It implemented in most browser, node.js, even part of
+<a href="http://wiki.commonjs.org/wiki/Console">commonjs</a>.
+See the <a href="https://github.com/jeromeetienne/console4Worker/blob/master/examples/index.html">demo</a>
+in the examples/ directory.</p>
 
-<p>To install it on node</p>
+<h2>On the Worker Side</h2>
+
+<p>First you include the script with this line.</p>
 
 <figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='bash'><div class='line'>npm install microcache
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">importScripts</span><span class="p">(</span><span class="s1">&#39;console4Worker-worker.js&#39;</span><span class="p">);</span>
 </div></code></pre></td></tr></table></div></figure>
 
-<p>To install the browser version, download it and include it like that</p>
+<p>And you are <strong>done</strong>! Now you can console API as you would normally do, even if you are in a
+<a href="http://www.whatwg.org/specs/web-apps/current-work/complete/workers.html">webworker</a>.
+Lets say something like</p>
 
 <figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='html'><div class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;microcache.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;console call made from inside a webworker&quot;</span><span class="p">);</span>
 </div></code></pre></td></tr></table></div></figure>
 
 <!-- more -->
 
 
-<h2>API</h2>
+<h2>On the Page Side</h2>
 
-<p>To instanciate a cache, do the following. You can have as many instances you want.</p>
-
-<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="kd">var</span> <span class="nx">microcache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MicroCache</span><span class="p">();</span>
-</div></code></pre></td></tr></table></div></figure>
-
-<h3>.get(key)</h3>
-
-<p>To get a cached asset which is in the cache. Each cached element has a unique
-key to identify it.</p>
+<p>On the page side, you need to add 3 lines.
+<em>First</em> to include the script, simply do</p>
 
 <figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">microcache</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;console4Worker-page.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
 </div></code></pre></td></tr></table></div></figure>
 
-<h3>.set(key, value)</h3>
-
-<p>To set a element value in the cache.</p>
+<p><em>Then</em> you bind console4Worker to your worker with another line.</p>
 
 <figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">microcache</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="c1">// init the worker</span>
+</div><div class='line'><span class="kd">var</span> <span class="nx">worker</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s2">&quot;worker.js&quot;</span><span class="p">);</span>
+</div><div class='line'><span class="c1">// bind the console4Worker to get console API from worker</span>
+</div><div class='line'><span class="nx">console4Worker</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">worker</span><span class="p">);</span>
 </div></code></pre></td></tr></table></div></figure>
 
-<h3>.contains(key)</h3>
-
-<p>To know if a given asset is currently in the cache.</p>
+<p><em>If</em> you got your own message event listener, add <code>console4Worker.filterEvent()</code> in it.
+This line will filter out messages coming from console4Worker.
+So you should have something like</p>
 
 <figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">microcache</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class='line'>2</span>
+<span class='line'>3</span>
+<span class='line'>4</span>
+<span class='line'>5</span>
+<span class='line'>6</span>
+</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">worker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</div><div class='line'>    <span class="c1">// filter this event if it is from console4Worker</span>
+</div><div class='line'>    <span class="k">if</span><span class="p">(</span> <span class="nx">console4Worker</span><span class="p">.</span><span class="nx">filterEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</div><div class='line'>
+</div><div class='line'>    <span class="c1">// ... here handle your own events</span>
+</div><div class='line'><span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
 </div></code></pre></td></tr></table></div></figure>
 
-<h3>.values()</h3>
+<h2>Motivation</h2>
 
-<p>To return all the elements currently in the cache</p>
+<p>Another project of mine is <a href="http://pacmaze.com">pacmaze</a>.
+It uses webworkers to provide smoother animations.
+This is important for high fps game.
+The worst which can happen is to have 50fps most of the time
+but with short period at 30fps.
+People want the animation to be smooth.</p>
 
-<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">microcache</span><span class="p">.</span><span class="nx">values</span><span class="p">();</span>
-</div></code></pre></td></tr></table></div></figure>
+<p>Webworker allows to spread the load on 2 cpu core.
+Thus the pick of grabage collection is distributed, and you got twice more
+cpu power. So all in all, i found myself spending quite some time debugging webworker, so i
+wrote console4Worker to spend less time next time :)</p>
 
-<h3>.getSet(key, value)</h3>
+<h2>Conclusion</h2>
 
-<p>To get an element from the cache, if it isnt already present, store it then return it</p>
+<p>How does it work ? a console object is declared in the worker. It intercepts
+all console calls and pass them to the page thread. a direct approach.
+I plan to add stacktrace and thus provide more accurate informations about the
+location of the call.</p>
 
-<figure role=code><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='javascript'><div class='line'><span class="nx">microcache</span><span class="p">.</span><span class="nx">getSet</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
-</div></code></pre></td></tr></table></div></figure>
-
-<h2>FAQ</h2>
-
-<ul>
-<li><strong>Q.</strong> what about plain <code>var microcache = {}</code> ? isnt this wrapper overengineering ?</li>
-<li><strong>A.</strong>  i was thinking so too at first. but the syntax of a .getSet() without wrapper was too ugly for my taste :)
-<code>var a = cache[key] = (cache[key] || value)</code> from @floriancargoet</li>
-</ul>
-
+<p>The code is available on <a href="https://github.com/jeromeetienne/console4Worker">github</a>
+under MIT license.
+If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)</p>
 </div>
 
 
@@ -180,21 +196,15 @@ key to identify it.</p>
 
 
 
-<time datetime="2011-09-05T00:00:00+02:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2011</time>
+<time datetime="2011-09-12T09:17:00+02:00" pubdate  data-updated="true" >Sep 12<span>th</span>, 2011</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/browser/'>browser</a>, <a class='category' href='/blog/categories/microlib/'>microlib</a>, <a class='category' href='/blog/categories/node/'>node</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.jetienne.com/blog/2011/09/05/microcache.js/" data-via="jerome_etienne" data-counturl="http://blog.jetienne.com/blog/2011/09/05/microcache.js/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.jetienne.com/blog/2011/09/12/console4worker/" data-via="jerome_etienne" data-counturl="http://blog.jetienne.com/blog/2011/09/12/console4worker/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -210,8 +220,8 @@ key to identify it.</p>
     <div id="disqus_thread"><div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'blogjetiennecom';
-  var disqus_identifier = 'http://blog.jetienne.com/blog/2011/09/05/microcache.js/';
-  var disqus_url = 'http://blog.jetienne.com/blog/2011/09/05/microcache.js/';
+  var disqus_identifier = 'http://blog.jetienne.com/blog/2011/09/12/console4worker/';
+  var disqus_url = 'http://blog.jetienne.com/blog/2011/09/12/console4worker/';
   //var disqus_developer = 1;
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

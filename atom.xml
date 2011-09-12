@@ -4,13 +4,124 @@
   <title>Jerome Etienne.js Blog</title>
   <link href="http://blog.jetienne.com/atom.xml" rel="self"/>
   <link href="http://blog.jetienne.com/"/>
-  <updated>2011-09-11T10:28:52+02:00</updated>
+  <updated>2011-09-12T16:47:15+02:00</updated>
   <id>http://blog.jetienne.com/</id>
   <author>
     <name>Jerome Etienne</name>
     
   </author>
 
+  
+  <entry>
+    <title>console4Worker - console API for worker</title>
+    <link href="http://blog.jetienne.com/blog/2011/09/12/console4worker/"/>
+    <updated>2011-09-12T09:17:00+02:00</updated>
+    <id>http://blog.jetienne.com/blog/2011/09/12/console4worker</id>
+    <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/jeromeetienne/console4Worker&quot;&gt;console4Worker&lt;/a&gt; is console API for WebWorkers.
+WebWorkers are hard to debug. On top of that, &lt;a href=&quot;http://getfirebug.com/wiki/index.php/Console_API&quot;&gt;console API&lt;/a&gt;
+is unavailable
+in WebWorkers. It doesn't help.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jeromeetienne/console4Worker&quot;&gt;console4Worker&lt;/a&gt;
+is a simple library which tries to fill this gap.
+It provides the &lt;a href=&quot;http://getfirebug.com/wiki/index.php/Console_API&quot;&gt;console API&lt;/a&gt;
+, the same api you are used to.
+It implemented in most browser, node.js, even part of
+&lt;a href=&quot;http://wiki.commonjs.org/wiki/Console&quot;&gt;commonjs&lt;/a&gt;.
+See the &lt;a href=&quot;https://github.com/jeromeetienne/console4Worker/blob/master/examples/index.html&quot;&gt;demo&lt;/a&gt;
+in the examples/ directory.&lt;/p&gt;
+
+&lt;h2&gt;On the Worker Side&lt;/h2&gt;
+
+&lt;p&gt;First you include the script with this line.&lt;/p&gt;
+
+&lt;p&gt;```javascript&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;importScripts('console4Worker-worker.js');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;And you are &lt;strong&gt;done&lt;/strong&gt;! Now you can console API as you would normally do, even if you are in a
+&lt;a href=&quot;http://www.whatwg.org/specs/web-apps/current-work/complete/workers.html&quot;&gt;webworker&lt;/a&gt;.
+Lets say something like&lt;/p&gt;
+
+&lt;p&gt;```javascript&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;console.log(&quot;console call made from inside a webworker&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;On the Page Side&lt;/h2&gt;
+
+&lt;p&gt;On the page side, you need to add 3 lines.
+&lt;em&gt;First&lt;/em&gt; to include the script, simply do&lt;/p&gt;
+
+&lt;p&gt;```javascript&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&quot;console4Worker-page.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Then&lt;/em&gt; you bind console4Worker to your worker with another line.&lt;/p&gt;
+
+&lt;p&gt;```javascript&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// init the worker
+var worker  = new Worker(&quot;worker.js&quot;);
+// bind the console4Worker to get console API from worker
+console4Worker.bind(worker);  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If&lt;/em&gt; you got your own message event listener, add &lt;code&gt;console4Worker.filterEvent()&lt;/code&gt; in it.
+This line will filter out messages coming from console4Worker.
+So you should have something like&lt;/p&gt;
+
+&lt;p&gt;```javascript&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;worker.addEventListener('message', function(event){
+    // filter this event if it is from console4Worker
+    if( console4Worker.filterEvent(event) ) return;
+
+    // ... here handle your own events
+}, false);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h2&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;Another project of mine is &lt;a href=&quot;http://pacmaze.com&quot;&gt;pacmaze&lt;/a&gt;.
+It uses webworkers to provide smoother animations.
+This is important for high fps game.
+The worst which can happen is to have 50fps most of the time
+but with short period at 30fps.
+People want the animation to be smooth.&lt;/p&gt;
+
+&lt;p&gt;Webworker allows to spread the load on 2 cpu core.
+Thus the pick of grabage collection is distributed, and you got twice more
+cpu power. So all in all, i found myself spending quite some time debugging webworker, so i
+wrote console4Worker to spend less time next time :)&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;How does it work ? a console object is declared in the worker. It intercepts
+all console calls and pass them to the page thread. a direct approach.
+I plan to add stacktrace and thus provide more accurate informations about the
+location of the call.&lt;/p&gt;
+
+&lt;p&gt;The code is available on &lt;a href=&quot;https://github.com/jeromeetienne/console4Worker&quot;&gt;github&lt;/a&gt;
+under MIT license.
+If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Pacmaze Update</title>
