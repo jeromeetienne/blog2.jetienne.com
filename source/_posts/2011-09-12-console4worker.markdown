@@ -2,7 +2,7 @@
 layout: post
 title: "console4Worker - console API for worker"
 date: 2011-09-12 09:17
-published: false
+published: true
 comments: true
 categories: 
 ---
@@ -21,7 +21,6 @@ It implemented in most browser, node.js, even part of
 See the [demo](https://github.com/jeromeetienne/console4Worker/blob/master/examples/index.html)
 in the examples/ directory. 
 
-
 ## On the Worker Side
 
 First you include the script with this line.
@@ -37,6 +36,8 @@ Lets say something like
 ```javascript
     console.log("console call made from inside a webworker");
 ```
+
+<!-- more -->
 
 ## On the Page Side
 
